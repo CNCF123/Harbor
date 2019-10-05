@@ -1,0 +1,19 @@
+
+1、下载离线安装包
+https://github.com/goharbor/harbor/releases
+
+2、解压并配置访问地址
+# tar zxvf harbor-offline-installer-v1.6.1.tgz 
+# cd harbor
+# vi harbor.cfg
+hostname = 192.168.1.1
+harbor_admin_password = 123456 
+
+3、准备配置
+# ./prepare
+
+4、导入镜像并启动
+# ./install.sh
+
+5、查看容器状态
+# docker-compose ps
