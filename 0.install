@@ -2,8 +2,9 @@
 1、下载离线安装包
 https://github.com/goharbor/harbor/releases
 
+https://github.com/goharbor/harbor/releases/download/v2.0.2/harbor-offline-installer-v2.0.2.tgz
 2、解压并配置访问地址
-# tar zxvf harbor-offline-installer-v1.6.1.tgz 
+# tar zxvf harbor-offline-installer-v2.0.2.tgz 
 # cd harbor
 # vi harbor.cfg
 hostname = 192.168.1.1
