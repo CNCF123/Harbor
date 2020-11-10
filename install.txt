@@ -44,6 +44,9 @@ harbor_admin_password: xxxxx
 安装并且开启 helm chart
 ./install.sh  --with-chartmuseum
 
+查看
+https://harbor.chenkaidi.com
+
 docker-compose启动与停止命令
 docker-compose start
 docker-compose stop
