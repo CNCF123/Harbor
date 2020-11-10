@@ -41,7 +41,7 @@ https:
 # harbor ui后台管理员密码  
 harbor_admin_password: xxxxx
 
-开启 helm chart
+安装并且开启 helm chart
 ./install.sh  --with-chartmuseum
 
 docker-compose启动与停止命令
