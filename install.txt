@@ -1,0 +1,49 @@
+1.下载
+wget https://cncf.oss-cn-hangzhou.aliyuncs.com/harbor/harbor-offline-installer-v2.0.3.tgz
+
+2.安装docker和docker-compose
+docker：
+yum -y install yum-utils device-mapper-persistent-data lvm2
+yum-config-manager http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+yum -y install docker-ce
+systemctl start docker
+systemctl enable docker
+docker-compose：
+wget https://cncf.oss-cn-hangzhou.aliyuncs.com/harbor/docker-compose
+chmod +x docker-compose 
+mv docker-compose /usr/local/bin/
+
+3.安装harbor
+mv harbor-offline-installer-v2.0.3.tgz /usr/local/
+cd /usr/local/
+tar -xvf harbor-offline-installer-v2.0.3.tgz
+cd harbor
+cp harbor.yml.tmpl harbor.yml
+
+vim harbor.yaml
+
+# 当前服务器ip，安装完成后就可以用这个地址访问web管理页面
+hostname: harbor.chenkaidi.com
+
+# http related config
+http:
+  # port for http, default is 80. If https enabled, this port will redirect to https port
+  port: 80
+
+# 将https的所有项注释掉，不开启https访问
+https:
+  # https port for harbor, default is 443
+  port: 443
+  # The path of cert and key files for nginx
+  certificate: /usr/local/harbor/ssl/harbor.chenkaidi.com.pem
+  private_key: /usr/local/harbor/ssl/harbor.chenkaidi.com.key
+
+# harbor ui后台管理员密码  
+harbor_admin_password: xxxxx
+
+开启 helm chart
+./install.sh  --with-chartmuseum
+
+docker-compose启动与停止命令
+docker-compose start
+docker-compose stop
